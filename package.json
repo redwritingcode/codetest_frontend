@@ -1,7 +1,6 @@
 {
   "name": "codetest_frontend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -19,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/redwritingcode/codetest_frontend/issues"
   },
-  "homepage": "https://github.com/redwritingcode/codetest_frontend#readme"
+  "homepage": "https://github.com/redwritingcode/codetest_frontend#readme",
+  "description": ""
 }
