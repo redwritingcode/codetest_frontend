@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp',[]);
 myApp.controller('MyController', function MyController ($scope){
+        $scope.artistOrder ='first';
         $scope.fellows =
 // $http service not working- aaargh
 // ($scope,$http) {

@@ -12,11 +12,39 @@
   <script src="js/app.js"></script>
 <body class="bg-secondary" ng-controller="MyController">
 
+
+
   <div class="container mt-sm-3">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 col-lg-6 card">
           <div class="card-body">
             <h2 class="card-title text-dark">Fellows Directory</h2>
+
+
+<div class="form-row">
+  <div class="col">
+    <select class="form-control form-control-inline mr-3 w-100" 
+    ng-model="artistOrder">
+      <option value="first">Name</option>
+      <option value="fellowship">Fellowship</option>
+       <option value="isActive">Active</option>
+    </select>
+  </div><!-- col -->
+  <div class="col-5 col-md-4">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="direction" checked
+        ng-model="direction"> asc</label>
+    </div><!-- form-check -->
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="direction" value="reverse"
+        ng-model="direction"> desc</label>
+    </div><!-- form-check -->
+  </div><!-- col-5 -->
+</div><!-- form-row -->
+
+
 
               <div class="form-row mb-2">
                 <div class="col">
@@ -39,18 +67,21 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-9 col-md-7 col-lg-5">
       <ul class=" list-group d-flex" >
-        <li class="list-group-item" ng-repeat="item in fellows | filter: query | orderBy:'last'">
+        <li class="list-group-item" ng-repeat="item in fellows | filter: query | orderBy: artistOrder:direction">
 
             
               <div class="media-body">
                 <h5 class="my-0 text-dark"> Name: {{item.first | uppercase}}, {{item.last}} </h5>
                  <h5 class="my-0 text-dark">Fellowship:{{item.fellowship}} </h5>
-                 <h5 class="my-0 text-dark">Age:{{item.age}} </h5>
-                <div class="text-secondary ">{{item.about}}</div>
-                <div class="text-secondary ">Email:{{item.email}}</div>
-                <div class="text-secondary ">Active:{{item.isActive}}</div>
-                <div class="text-secondary ">Email:{{item.email}}</div>
-                <div class="text-secondary ">Date registered:{{item.registered}}</div>
+                 <br>
+                <div class="text-secondary "><strong>Active:</strong> {{item.isActive}}</div>
+                <div class="text-secondary "><strong>Date registered:</strong> {{item.registered}}</div>
+                <div class="text-secondary "><strong>Age:</strong> {{item.age}}</div>
+                <div class="text-secondary "><strong>About<br></strong> {{item.about}}</div>
+                <div class="text-secondary "><strong>Email:</strong> {{item.email}}</div>
+               
+                
+                
               </div><!-- media-body -->
             </div><!-- media -->
 
@@ -65,4 +96,8 @@
 <script src="lib/bootstrap/bootstrap.min.js"></script>
 
 </body>
+<footer>
+  <p>Contact information: <a href="mailto:redwritingcode@gmail.com">
+  redwritingcode</a></p>
+</footer>
 </html>
