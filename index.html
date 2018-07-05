@@ -2,7 +2,7 @@
 <html ng-app='myApp'>
 <head>
   <meta charset="utf-8">
-  <title>Code for Australia- Fellows Directory</title>
+  <title>Code for Australia - Fellows Directory</title>
   <meta name="viewport" content="width=device-width">
 
   <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
@@ -21,7 +21,7 @@
               <div class="form-row mb-2">
                 <div class="col">
                   <label class="col-form-label text-right" for="searchQuery">
-                    search {{ 'for: ' + query }}</label>
+                    search <span ng-if="query">{{ 'for: ' + query }}</span></label>
                 </div><!-- label -->
                 
                 <div class="col-12">
@@ -38,19 +38,19 @@
 <div class="fellow-list container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-9 col-md-7 col-lg-5">
-      <ul class=" list-group d-flex">
-        <li class="list-group-item">
+      <ul class=" list-group d-flex" >
+        <li class="list-group-item" ng-repeat="item in fellows | filter: query | orderBy:'last'">
 
             
               <div class="media-body">
-                <h5 class="my-0 text-dark">{{fellow.first}} {{fellow.last}}  </h5>
-                 <h5 class="my-0 text-dark">Fellowship:{{fellow.fellowship}} </h5>
-                 <h5 class="my-0 text-dark">Age:{{fellow.age}} </h5>
-                <div class="text-secondary font-italic">{{fellow.about}}</div>
-                <div class="text-secondary ">Email:{{fellow.email}}</div>
-                <div class="text-secondary ">Active:{{fellow.isActive}}</div>
-                <div class="text-secondary ">Email:{{fellow.email}}</div>
-                <div class="text-secondary ">Date registered:{{fellow.registered}}</div>
+                <h5 class="my-0 text-dark"> Name: {{item.first | uppercase}}, {{item.last}} </h5>
+                 <h5 class="my-0 text-dark">Fellowship:{{item.fellowship}} </h5>
+                 <h5 class="my-0 text-dark">Age:{{item.age}} </h5>
+                <div class="text-secondary ">{{item.about}}</div>
+                <div class="text-secondary ">Email:{{item.email}}</div>
+                <div class="text-secondary ">Active:{{item.isActive}}</div>
+                <div class="text-secondary ">Email:{{item.email}}</div>
+                <div class="text-secondary ">Date registered:{{item.registered}}</div>
               </div><!-- media-body -->
             </div><!-- media -->
 
